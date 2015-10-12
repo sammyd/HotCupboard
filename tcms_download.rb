@@ -15,7 +15,7 @@ audioBaseURL = "/audio"
 resp = Net::HTTP.get_response(URI.parse(dataURL))
 episodes = JSON.parse(resp.body)
 
-episodeInfo = result.map do |ep|
+episodeInfo = episodes.map do |ep|
   {
     date: ep["StartDate"],
     filename: ep["MediaFiles"].first["FileName"]
