@@ -30,7 +30,7 @@ previouslyDownloaded = Dir[downloadDirectory + "/*.mp4"].map { |file| File.basen
 episodeInfo.each do |ep|
   if !previouslyDownloaded.include? ep[:date]
     # Need to download the new file
-    uri = URI(audioBaseURL + ep[:date] + '.mp4')
+    uri = URI(audioBaseURL + ep[:filename] + '.mp4')
     Net::HTTP.start(uri.host, uri.port) do |http|
       p "Downloading #{ep[:date]}"
       request = Net::HTTP::Get.new uri.request_uri
