@@ -33,7 +33,7 @@ episodeInfo.each do |ep|
     uri = URI(audioBaseURL + ep[:date] + '.mp4')
     Net::HTTP.start(uri.host, uri.port) do |http|
       p "Downloading #{ep[:date]}"
-      request = Net::HTTP::Get.new uri
+      request = Net::HTTP::Get.new uri.request_uri
 
       http.request request do |response|
         open(downloadDirectory + "/" + ep[:date] + ".mp4", 'w') do |io|
