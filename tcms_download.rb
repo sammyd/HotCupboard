@@ -18,7 +18,7 @@ episodes = JSON.parse(resp.body)
 episodeInfo = episodes.map do |ep|
   {
     date: ep["StartDate"],
-    filename: ep["MediaFiles"].first["FileName"]
+    filename: ep["MediaFiles"].first["Filename"]
   }
 end
 
